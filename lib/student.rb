@@ -57,6 +57,7 @@ class Student
     DB[:conn].execute(sql)
   end
   
+<<<<<<< HEAD
   def self.find_by_name(name)
     sql = <<-SQL 
       SELECT * 
@@ -71,6 +72,14 @@ class Student
   
   def self.new_from_db(row)
     self.new(row[1], row[2], row[0])
+=======
+  def self.new_from_db(row)
+    student = self.new.tap do |x|
+      x.id = row[0]
+      x.name = row[1]
+      x.grade = row[3]
+    end
+>>>>>>> 7137c2636dc1b537dfb134b3571299d70c8795b5
   end
 
 
